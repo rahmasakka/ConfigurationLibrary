@@ -4,8 +4,22 @@ spring:
       host: 127.0.0.1
       port: 27017
       database: administration
+
+server:  
+  port: ${PORT:4444}
+
+spring:  
+  application:
+    name: administrateur-service
       
-                
+eureka:  
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+      
 ribbon:
   eureka:
     enabled: true
